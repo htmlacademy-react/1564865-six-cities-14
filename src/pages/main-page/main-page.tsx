@@ -1,5 +1,5 @@
 import Header from '../../components/header/header';
-import OfferCard from '../../components/offer-card/offer-card';
+import PlaceCard from '../../components/place-card/place-card';
 
 type MainPageProps = {
   offersCount: number;
@@ -69,11 +69,11 @@ function MainPage({offersCount}: MainPageProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <OfferCard />
-                <OfferCard />
-                <OfferCard />
-                <OfferCard />
-                <OfferCard />
+                <PlaceCard />
+                <PlaceCard />
+                <PlaceCard />
+                <PlaceCard />
+                <PlaceCard />
               </div>
             </section>
             <div className="cities__right-section">
