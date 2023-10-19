@@ -1,5 +1,6 @@
 import Header from '../../components/header/header';
 import PlaceCard from '../../components/place-card/place-card';
+import { cards } from '../../components/place-card/card-data';
 
 const cities: string[] = [
   'Paris',
@@ -67,11 +68,19 @@ function MainPage({offersCount}: MainPageProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <PlaceCard />
-                <PlaceCard />
-                <PlaceCard />
-                <PlaceCard />
-                <PlaceCard />
+
+                {cards.map((card) => (
+                  <PlaceCard
+                    key={card.id}
+                    img={card.img}
+                    premiumMark={card.premiumMark}
+                    priceValue={card.priceValue}
+                    rating={card.rating}
+                    placeCardName={card.placeCardName}
+                    placeCardType={card.placeCardType}
+                  />
+                ))};
+
               </div>
             </section>
             <div className="cities__right-section">
