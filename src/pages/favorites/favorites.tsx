@@ -1,6 +1,7 @@
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import PlaceCard from '../../components/place-card/place-card';
+import { cards } from '../../components/place-card/card-data';
 
 function Favorites() {
   return (
@@ -21,8 +22,17 @@ function Favorites() {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  <PlaceCard />
-                  <PlaceCard />
+                  {cards.map((card) => (
+                    <PlaceCard
+                      key={card.id}
+                      img={card.img}
+                      premiumMark={card.premiumMark}
+                      priceValue={card.priceValue}
+                      rating={card.rating}
+                      placeCardName={card.placeCardName}
+                      placeCardType={card.placeCardType}
+                    />
+                  ))};
                 </div>
               </li>
 
@@ -35,7 +45,17 @@ function Favorites() {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  <PlaceCard />
+                  {cards.map((card) => (
+                    <PlaceCard
+                      key={card.id}
+                      img={card.img}
+                      premiumMark={card.premiumMark}
+                      priceValue={card.priceValue}
+                      rating={card.rating}
+                      placeCardName={card.placeCardName}
+                      placeCardType={card.placeCardType}
+                    />
+                  ))};
                 </div>
               </li>
             </ul>
