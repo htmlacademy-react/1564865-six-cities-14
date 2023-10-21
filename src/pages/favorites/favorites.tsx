@@ -5,7 +5,7 @@ import Footer from '../../components/footer/footer';
 import PlaceCard from '../../components/place-card/place-card';
 import { cards } from '../../components/place-card/card-data';
 
-function Favorites() {
+function Favorites(): JSX.Element {
   return (
     <div className="page">
       <Header />

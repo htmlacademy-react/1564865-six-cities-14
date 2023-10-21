@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styles from './not-found-page.module.css';
 import { AppRoute } from '../../const';
 
-function NotFoundPage() {
+function NotFoundPage(): JSX.Element {
   return (
     <div className={`page ${styles.notFoundPage}`}>
       <Helmet>
