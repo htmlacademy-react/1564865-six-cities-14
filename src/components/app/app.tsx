@@ -4,7 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import MainPage from '../../pages/main-page/main-page';
 import Favorites from '../../pages/favorites/favorites';
 import Login from '../../pages/login/login';
-import Offer from '../../pages/offer/Offer';
+import Offer from '../../pages/offer/offer';
 import NotFoundPage from '../../pages/not-found-page/not-found-page';
 
 import { AppRoute } from '../../const';
