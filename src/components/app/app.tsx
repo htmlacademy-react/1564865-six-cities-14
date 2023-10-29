@@ -3,9 +3,9 @@ import { HelmetProvider } from 'react-helmet-async';
 import ProtectedRoute from '../protected-route/protected-route';
 
 import MainPage from '../../pages/main-page/main-page';
-import Favorites from '../../pages/favorites/favorites';
-import Login from '../../pages/login/login';
-import Offer from '../../pages/offer/offer';
+import FavoritesPage from '../../pages/favorites-page/favorites-page';
+import LoginPage from '../../pages/login-page/login-page';
+import OfferPage from '../../pages/offer-page/offer-page';
 import NotFoundPage from '../../pages/not-found-page/not-found-page';
 
 import { AppRoute, AuthorizationStatus } from '../../const';
@@ -30,7 +30,7 @@ function App({offersCount}: NumberOfRentals): JSX.Element {
                 restrictedFor={AuthorizationStatus.NoAuth}
                 redirectTo={AppRoute.Login}
               >
-                <Favorites />
+                <FavoritesPage />
               </ProtectedRoute>
             }
           />
@@ -41,13 +41,13 @@ function App({offersCount}: NumberOfRentals): JSX.Element {
                 restrictedFor={AuthorizationStatus.Auth}
                 redirectTo={AppRoute.Root}
               >
-                <Login />
+                <LoginPage />
               </ProtectedRoute>
             }
           />
           <Route
             path={`${AppRoute.Offer}/:offerId`}
-            element={<Offer />}
+            element={<OfferPage />}
           />
           <Route
             path='*'

@@ -5,7 +5,7 @@ import Footer from '../../components/footer/footer';
 import PlaceCard from '../../components/place-card/place-card';
 import { cards } from '../../components/place-card/card-data';
 
-function Favorites(): JSX.Element {
+function FavoritesPage(): JSX.Element {
   return (
     <div className="page">
       <Header />
@@ -72,4 +72,4 @@ function Favorites(): JSX.Element {
   );
 }
 
-export default Favorites;
+export default FavoritesPage;

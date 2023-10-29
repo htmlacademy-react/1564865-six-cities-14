@@ -3,7 +3,7 @@ import PlaceCard from '../../components/place-card/place-card';
 import { cards } from '../../components/place-card/card-data';
 import { offerGallery, offerInsideItems } from './offer-data';
 
-function Offer(): JSX.Element {
+function OfferPage(): JSX.Element {
   return (
     <main className="page__main page__main--offer">
       <Helmet>
@@ -194,4 +194,4 @@ function Offer(): JSX.Element {
   );
 }
 
-export default Offer;
+export default OfferPage;
