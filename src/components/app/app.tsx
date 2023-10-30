@@ -10,11 +10,14 @@ import NotFoundPage from '../../pages/not-found-page/not-found-page';
 
 import { AppRoute, AuthorizationStatus } from '../../const';
 
-type NumberOfRentals = {
+import { Offer } from '../../types/offer';
+
+type AppPageProps = {
   offersCount: number;
+  offers: Offer;
 }
 
-function App({offersCount}: NumberOfRentals): JSX.Element {
+function App({offersCount, offers}: AppPageProps): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
