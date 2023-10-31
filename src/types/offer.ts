@@ -7,5 +7,5 @@ export type TOffer = TOfferPreview & {
   host: TUser;
   images: string[];
   maxAdults: number;
-  id?: number;
+  id?: string;
 };

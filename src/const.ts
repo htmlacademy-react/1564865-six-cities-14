@@ -6,7 +6,7 @@ export enum AppRoute {
   Favorites = '/favorites',
   Login = '/login',
   Root = '/',
-  Offer = '/offer'
+  OfferPage = '/offer-page'
 }
 
 export enum AuthorizationStatus {
@@ -23,3 +23,12 @@ export enum CityName {
   Hamburg = 'Hamburg',
   Dusseldorf = 'Dusseldorf',
 }
+
+export const CityMap: string[] = [
+  'Paris',
+  'Cologne',
+  'Brussels',
+  'Amsterdam',
+  'Hamburg',
+  'Dusseldorf',
+];

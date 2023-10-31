@@ -1,9 +1,15 @@
 import { Helmet } from 'react-helmet-async';
 import PlaceCard from '../../components/place-card/place-card';
-import { cards } from '../../components/place-card/card-data';
+// import { cards } from '../../components/place-card/card-data';
 import { offerGallery, offerInsideItems } from './offer-data';
 
-function OfferPage(): JSX.Element {
+import { TOfferPreview } from '../../types/offer-preview';
+
+type TOfferPageProps = {
+  offers: TOfferPreview[];
+}
+
+function OfferPage({ offers }: TOfferPageProps): JSX.Element {
   return (
     <main className="page__main page__main--offer">
       <Helmet>
@@ -176,17 +182,9 @@ function OfferPage(): JSX.Element {
         <section className="near-places places">
           <h2 className="near-places__title">Other places in the neighbourhood</h2>
           <div className="near-places__list places__list">
-            {cards.slice(0, 3).map((card) => (
-              <PlaceCard
-                key={card.id}
-                img={card.img}
-                premiumMark={card.premiumMark}
-                priceValue={card.priceValue}
-                rating={card.rating}
-                placeCardName={card.placeCardName}
-                placeCardType={card.placeCardType}
-              />
-            ))};
+            {offers.map((offer) => (
+              <PlaceCard key={offer.id} offer={offer} />
+            ))}
           </div>
         </section>
       </div>
