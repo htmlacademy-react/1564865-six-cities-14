@@ -1,50 +1,7 @@
-import { Offer } from '../types/offer';
+import { TOffer } from '../types/offer';
 import { CityName } from '../const';
 
-export const offerData: Offer = {
-  city: {
-    name: CityName.Dusseldorf
-  },
-  previewImage: 'https://14.react.pages.academy/static/offer/3.jpg',
-  images: [
-    'https://14.react.pages.academy/static/offer/16.jpg',
-    'https://14.react.pages.academy/static/offer/13.jpg',
-    'https://14.react.pages.academy/static/offer/6.jpg',
-    'https://14.react.pages.academy/static/offer/11.jpg',
-    'https://14.react.pages.academy/static/offer/14.jpg',
-    'https://14.react.pages.academy/static/offer/9.jpg',
-    'https://14.react.pages.academy/static/offer/2.jpg',
-    'https://14.react.pages.academy/static/offer/15.jpg',
-    'https://14.react.pages.academy/static/offer/7.jpg',
-    'https://14.react.pages.academy/static/offer/17.jpg',
-    'https://14.react.pages.academy/static/offer/4.jpg',
-    'https://14.react.pages.academy/static/offer/8.jpg',
-    'https://14.react.pages.academy/static/offer/10.jpg',
-    'https://14.react.pages.academy/static/offer/5.jpg'
-  ],
-  title: 'Waterfront with extraordinary view',
-  isFavorite: false,
-  isPremium: true,
-  rating: 4.8,
-  type: 'room',
-  bedrooms: 1,
-  maxAdults: 2,
-  price: 142,
-  goods: [
-    'Laptop friendly workspace',
-    'Breakfast'
-  ],
-  host: {
-    id: 25,
-    name: 'Angelina',
-    isPro: true,
-    avatarUrl: 'img/avatar-angelina.jpg'
-  },
-  description: 'A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.',
-  id: 1
-};
-
-export const offersData: Offer[] = [
+export const offers: TOffer[] = [
   {
     city: {
       'name': CityName.Dusseldorf,
