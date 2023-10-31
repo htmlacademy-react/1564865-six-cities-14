@@ -10,11 +10,11 @@ import NotFoundPage from '../../pages/not-found-page/not-found-page';
 
 import { AppRoute, AuthorizationStatus } from '../../const';
 
-import { Offer } from '../../types/offer';
+import { TOffer } from '../../types/offer';
 
 type AppPageProps = {
   offersCount: number;
-  offers: Offer;
+  offers: TOffer;
 }
 
 function App({offersCount, offers}: AppPageProps): JSX.Element {
@@ -24,7 +24,7 @@ function App({offersCount, offers}: AppPageProps): JSX.Element {
         <Routes>
           <Route
             path={AppRoute.Root}
-            element={<MainPage offersCount={offersCount} />}
+            element={<MainPage offersCount={offersCount} offers={offers}/>}
           />
           <Route
             path={AppRoute.Favorites}
@@ -33,7 +33,7 @@ function App({offersCount, offers}: AppPageProps): JSX.Element {
                 restrictedFor={AuthorizationStatus.NoAuth}
                 redirectTo={AppRoute.Login}
               >
-                <FavoritesPage />
+                <FavoritesPage offers={offers}/>
               </ProtectedRoute>
             }
           />
@@ -49,8 +49,8 @@ function App({offersCount, offers}: AppPageProps): JSX.Element {
             }
           />
           <Route
-            path={`${AppRoute.Offer}/:offerId`}
-            element={<OfferPage />}
+            path={`${AppRoute.OfferPage}/:offerId`}
+            element={<OfferPage offers={offers}/>}
           />
           <Route
             path='*'
