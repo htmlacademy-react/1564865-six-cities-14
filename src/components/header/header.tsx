@@ -21,7 +21,7 @@ function Header(): JSX.Element {
                 </a>
               </li>
               <li className="header__nav-item">
-                <Link to={AppRoute.Login} className="header__nav-link">
+                <Link to={AppRoute.LoginPage} className="header__nav-link">
                   <span className="header__signout">Sign out</span>
                 </Link>
               </li>

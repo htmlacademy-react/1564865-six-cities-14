@@ -3,8 +3,8 @@ export const Setting = {
 };
 
 export enum AppRoute {
-  Favorites = '/favorites',
-  Login = '/login',
+  FavoritesPage = '/favorites',
+  LoginPage = '/login-page',
   Root = '/',
   OfferPage = '/offer-page'
 }
