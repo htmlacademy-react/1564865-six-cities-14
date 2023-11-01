@@ -16,8 +16,6 @@ type AppPageProps = {
   offers: TOfferPreview[];
 }
 
-console.log(AppRoute.FavoritesPage);
-
 function App({ offers }: AppPageProps): JSX.Element {
   return (
     <HelmetProvider>
@@ -29,15 +27,14 @@ function App({ offers }: AppPageProps): JSX.Element {
           />
           <Route
             path={AppRoute.FavoritesPage}
-            element={<FavoritesPage offers={offers}/>}
-            // element={
-            //   <ProtectedRoute
-            //     restrictedFor={AuthorizationStatus.NoAuth}
-            //     redirectTo={AppRoute.LoginPage}
-            //   >
-            //     <FavoritesPage offers={offers}/>
-            //   </ProtectedRoute>
-            // }
+            element={
+              <ProtectedRoute
+                restrictedFor={AuthorizationStatus.NoAuth}
+                redirectTo={AppRoute.LoginPage}
+              >
+                <FavoritesPage offers={offers}/>
+              </ProtectedRoute>
+            }
           />
           <Route
             path={AppRoute.LoginPage}
