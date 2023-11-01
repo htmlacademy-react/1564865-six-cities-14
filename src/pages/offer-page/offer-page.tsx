@@ -6,12 +6,14 @@ import ReviewForm from '../../components/review-form/review-form';
 import { offerGallery, offerInsideItems } from './offer-data';
 
 import { TOfferPreview } from '../../types/offer-preview';
+import { ReviewType } from '../../types/review';
 
 type TOfferPageProps = {
   offers: TOfferPreview[];
+  reviews: ReviewType[];
 }
 
-function OfferPage({ offers }: TOfferPageProps): JSX.Element {
+function OfferPage({ offers, reviews }: TOfferPageProps): JSX.Element {
   return (
     <>
       <Header />
@@ -106,8 +108,7 @@ function OfferPage({ offers }: TOfferPageProps): JSX.Element {
                 </div>
               </div>
               <section className="offer__reviews reviews">
-                <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">1</span></h2>
-                <ReviewList />
+                <ReviewList reviews={reviews}/>
                 <ReviewForm />
               </section>
             </div>

@@ -11,19 +11,21 @@ import NotFoundPage from '../../pages/not-found-page/not-found-page';
 import { AppRoute, AuthorizationStatus } from '../../const';
 
 import { TOfferPreview } from '../../types/offer-preview';
+import { ReviewType } from '../../types/review';
 
 type AppPageProps = {
   offers: TOfferPreview[];
+  reviews: ReviewType[];
 }
 
-function App({ offers }: AppPageProps): JSX.Element {
+function App({ offers, reviews }: AppPageProps): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
           <Route
             path={AppRoute.Root}
-            element={<MainPage offers={offers}/>}
+            element={<MainPage offers={offers} />}
           />
           <Route
             path={AppRoute.FavoritesPage}
@@ -32,7 +34,7 @@ function App({ offers }: AppPageProps): JSX.Element {
                 restrictedFor={AuthorizationStatus.NoAuth}
                 redirectTo={AppRoute.LoginPage}
               >
-                <FavoritesPage offers={offers}/>
+                <FavoritesPage offers={offers} />
               </ProtectedRoute>
             }
           />
@@ -49,7 +51,7 @@ function App({ offers }: AppPageProps): JSX.Element {
           />
           <Route
             path={`${AppRoute.OfferPage}/:offerId`}
-            element={<OfferPage offers={offers}/>}
+            element={<OfferPage offers={offers} reviews={reviews}/>}
           />
           <Route
             path='*'

@@ -1,8 +1,8 @@
-import { User } from './user';
+import { TUser } from './user';
 
 export type ReviewType = {
   'id': number;
-  'user': User;
+  'user': TUser;
   'rating': number;
   'comment': string;
   'date': string;
