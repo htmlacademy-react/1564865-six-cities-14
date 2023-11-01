@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
 import { TOffer } from '../../types/offer';
@@ -10,6 +12,7 @@ type TCardProps = {
 }
 
 function PlaceCard({offer}: TCardProps): JSX.Element {
+  const [isActive, setIsActive] = useState(false);
 
   const {
     id,
@@ -25,7 +28,11 @@ function PlaceCard({offer}: TCardProps): JSX.Element {
   const offerLink = `${AppRoute.OfferPage}/${id}`;
 
   return (
-    <article className="cities__card place-card">
+    <article
+      className={`cities__card place-card ${isActive ? 'place-card--active' : ''}`}
+      onMouseEnter={() => setIsActive(true)}
+      onMouseLeave={() => setIsActive(false)}
+    >
       {isPremium && (
         <div className="place-card__mark">
           <span>Premium</span>
