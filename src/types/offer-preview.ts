@@ -12,4 +12,5 @@ export type TOfferPreview = {
   rating: number;
   title: string;
   type: string;
+  id: string;
  }
