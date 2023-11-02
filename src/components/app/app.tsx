@@ -31,7 +31,7 @@ function App({ offers, reviews }: AppPageProps): JSX.Element {
             path={AppRoute.FavoritesPage}
             element={
               <ProtectedRoute
-                restrictedFor={AuthorizationStatus.NoAuth}
+                restrictedFor={AuthorizationStatus.Auth}
                 redirectTo={AppRoute.LoginPage}
               >
                 <FavoritesPage offers={offers} />
