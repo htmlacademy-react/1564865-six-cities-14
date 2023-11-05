@@ -28,18 +28,18 @@ function App({ offers, reviews }: AppPageProps): JSX.Element {
             element={<MainPage offers={offers} />}
           />
           <Route
-            path={AppRoute.FavoritesPage}
+            path={AppRoute.Favorites}
             element={
               <ProtectedRoute
                 restrictedFor={AuthorizationStatus.Auth}
-                redirectTo={AppRoute.LoginPage}
+                redirectTo={AppRoute.Login}
               >
                 <FavoritesPage offers={offers} />
               </ProtectedRoute>
             }
           />
           <Route
-            path={AppRoute.LoginPage}
+            path={AppRoute.Login}
             element={
               <ProtectedRoute
                 restrictedFor={AuthorizationStatus.Auth}
@@ -50,7 +50,7 @@ function App({ offers, reviews }: AppPageProps): JSX.Element {
             }
           />
           <Route
-            path={`${AppRoute.OfferPage}/:offerId`}
+            path={`${AppRoute.Offer}/:offerId`}
             element={<OfferPage offers={offers} reviews={reviews}/>}
           />
           <Route

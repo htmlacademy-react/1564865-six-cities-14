@@ -25,7 +25,7 @@ function PlaceCard({offer}: TCardProps): JSX.Element {
     previewImage
   } = offer;
 
-  const offerLink = `${AppRoute.OfferPage}/${id}`;
+  const offerLink = `${AppRoute.Offer}/${id}`;
 
   const handleMouseEnter = () => {
     setIsActive(true);
