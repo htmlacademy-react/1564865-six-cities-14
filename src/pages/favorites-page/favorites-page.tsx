@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async';
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import PlaceCard from '../../components/place-card/place-card';
-// import { cards } from '../../components/place-card/card-data';
 
 import { TOfferPreview } from '../../types/offer-preview';
 
