@@ -27,11 +27,19 @@ function PlaceCard({offer}: TCardProps): JSX.Element {
 
   const offerLink = `${AppRoute.OfferPage}/${id}`;
 
+  const handleMouseEnter = () => {
+    setIsActive(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsActive(false);
+  };
+
   return (
     <article
       className={`cities__card place-card ${isActive ? 'place-card--active' : ''}`}
-      onMouseEnter={() => setIsActive(true)}
-      onMouseLeave={() => setIsActive(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {isPremium && (
         <div className="place-card__mark">
