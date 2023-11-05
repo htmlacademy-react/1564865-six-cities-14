@@ -1,8 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import Header from '../../components/header/header';
-import PlaceCard from '../../components/place-card/place-card';
 import ReviewList from '../../components/review-list/review-list';
 import ReviewForm from '../../components/review-form/review-form';
+import OfferList from '../../components/offer-list/offer-list';
 import { offerGallery, offerInsideItems } from './offer-data';
 
 import { TOfferPreview } from '../../types/offer-preview';
@@ -119,9 +119,7 @@ function OfferPage({ offers, reviews }: TOfferPageProps): JSX.Element {
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
-              {offers.map((offer) => (
-                <PlaceCard key={offer.id} offer={offer} />
-              ))}
+              <OfferList offers={offers}/>
             </div>
           </section>
         </div>

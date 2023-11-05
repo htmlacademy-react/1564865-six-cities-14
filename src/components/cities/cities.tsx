@@ -1,6 +1,6 @@
-import PlaceCard from '../../components/place-card/place-card';
 
 import { TOfferPreview } from '../../types/offer-preview';
+import OfferList from '../offer-list/offer-list';
 
 const placesOptions: string[] = [
   'Popular',
@@ -42,9 +42,7 @@ function Cities({ offers }: TCitiesProps) {
           </form>
           <div className="cities__places-list places__list tabs__content">
 
-            {offers.map((offer) => (
-              <PlaceCard key={offer.id} offer={offer} />
-            ))}
+            <OfferList offers={offers}/>
 
           </div>
         </section>

@@ -2,7 +2,8 @@ import { Helmet } from 'react-helmet-async';
 
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
-import PlaceCard from '../../components/place-card/place-card';
+// import PlaceCard from '../../components/place-card/place-card';
+import OfferList from '../../components/offer-list/offer-list';
 
 import { TOfferPreview } from '../../types/offer-preview';
 
@@ -33,9 +34,7 @@ function FavoritesPage({ offers }: TFavoritesPageProps): JSX.Element {
                 </div>
                 <div className="favorites__places">
 
-                  {offers.map((offer) => (
-                    <PlaceCard key={offer.id} offer={offer} />
-                  ))}
+                  <OfferList offers={offers}/>
 
                 </div>
               </li>
@@ -50,9 +49,7 @@ function FavoritesPage({ offers }: TFavoritesPageProps): JSX.Element {
                 </div>
                 <div className="favorites__places">
 
-                  {offers.slice(0, 1).map((offer) => (
-                    <PlaceCard key={offer.id} offer={offer} />
-                  ))}
+                  <OfferList offers={offers}/>
 
                 </div>
               </li>
