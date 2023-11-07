@@ -3,34 +3,38 @@ import { HelmetProvider } from 'react-helmet-async';
 import ProtectedRoute from '../protected-route/protected-route';
 
 import MainPage from '../../pages/main-page/main-page';
-import Favorites from '../../pages/favorites/favorites';
-import Login from '../../pages/login/login';
-import Offer from '../../pages/offer/offer';
+import FavoritesPage from '../../pages/favorites-page/favorites-page';
+import LoginPage from '../../pages/login-page/login-page';
+import OfferPage from '../../pages/offer-page/offer-page';
 import NotFoundPage from '../../pages/not-found-page/not-found-page';
 
 import { AppRoute, AuthorizationStatus } from '../../const';
 
-type NumberOfRentals = {
-  offersCount: number;
+import { TOfferPreview } from '../../types/offer-preview';
+import { ReviewType } from '../../types/review';
+
+type AppPageProps = {
+  offers: TOfferPreview[];
+  reviews: ReviewType[];
 }
 
-function App({offersCount}: NumberOfRentals): JSX.Element {
+function App({ offers, reviews }: AppPageProps): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
           <Route
             path={AppRoute.Root}
-            element={<MainPage offersCount={offersCount} />}
+            element={<MainPage offers={offers} />}
           />
           <Route
             path={AppRoute.Favorites}
             element={
               <ProtectedRoute
-                restrictedFor={AuthorizationStatus.NoAuth}
+                restrictedFor={AuthorizationStatus.Auth}
                 redirectTo={AppRoute.Login}
               >
-                <Favorites />
+                <FavoritesPage offers={offers} />
               </ProtectedRoute>
             }
           />
@@ -41,13 +45,13 @@ function App({offersCount}: NumberOfRentals): JSX.Element {
                 restrictedFor={AuthorizationStatus.Auth}
                 redirectTo={AppRoute.Root}
               >
-                <Login />
+                <LoginPage />
               </ProtectedRoute>
             }
           />
           <Route
             path={`${AppRoute.Offer}/:offerId`}
-            element={<Offer />}
+            element={<OfferPage offers={offers} reviews={reviews}/>}
           />
           <Route
             path='*'

@@ -2,10 +2,16 @@ import { Helmet } from 'react-helmet-async';
 
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
-import PlaceCard from '../../components/place-card/place-card';
-import { cards } from '../../components/place-card/card-data';
+// import PlaceCard from '../../components/place-card/place-card';
+import OfferList from '../../components/offer-list/offer-list';
 
-function Favorites(): JSX.Element {
+import { TOfferPreview } from '../../types/offer-preview';
+
+type TFavoritesPageProps = {
+  offers: TOfferPreview[];
+}
+
+function FavoritesPage({ offers }: TFavoritesPageProps): JSX.Element {
   return (
     <div className="page">
       <Header />
@@ -27,17 +33,9 @@ function Favorites(): JSX.Element {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  {cards.map((card) => (
-                    <PlaceCard
-                      key={card.id}
-                      img={card.img}
-                      premiumMark={card.premiumMark}
-                      priceValue={card.priceValue}
-                      rating={card.rating}
-                      placeCardName={card.placeCardName}
-                      placeCardType={card.placeCardType}
-                    />
-                  ))};
+
+                  <OfferList offers={offers}/>
+
                 </div>
               </li>
 
@@ -50,17 +48,9 @@ function Favorites(): JSX.Element {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  {cards.map((card) => (
-                    <PlaceCard
-                      key={card.id}
-                      img={card.img}
-                      premiumMark={card.premiumMark}
-                      priceValue={card.priceValue}
-                      rating={card.rating}
-                      placeCardName={card.placeCardName}
-                      placeCardType={card.placeCardType}
-                    />
-                  ))};
+
+                  <OfferList offers={offers}/>
+
                 </div>
               </li>
             </ul>
@@ -72,4 +62,4 @@ function Favorites(): JSX.Element {
   );
 }
 
-export default Favorites;
+export default FavoritesPage;
