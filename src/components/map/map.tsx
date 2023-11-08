@@ -21,10 +21,11 @@ type TMapProps = {
   city: TMapPoint;
   points: TMapPoint[];
   selectedPoint: TMapPoint | undefined;
+  block: string;
 };
 
 function Map(props: Readonly<TMapProps>) {
-  const {city, points, selectedPoint} = props;
+  const {city, points, block, selectedPoint} = props;
   const mapRef = useRef(null);
   const map = useMap(mapRef, city);
 
@@ -51,7 +52,7 @@ function Map(props: Readonly<TMapProps>) {
   }, [map, points, selectedPoint]);
 
   return (
-    <section className="cities__map map" style={{'height': '500px'}} ref={mapRef}></section>
+    <section className={`${block}__map map`} style={{'height': '500px'}} ref={mapRef}></section>
   );
 }
 
