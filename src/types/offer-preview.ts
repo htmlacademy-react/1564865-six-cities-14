@@ -13,4 +13,5 @@ export type TOfferPreview = {
   title: string;
   type: string;
   id: string;
+  onCardHover?: void;
  }

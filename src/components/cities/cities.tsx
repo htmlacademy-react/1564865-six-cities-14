@@ -1,6 +1,11 @@
+import { useState } from 'react';
+
+import Map from '../map/map';
+import PlaceCard from '../place-card/place-card';
+// import OfferList from '../offer-list/offer-list';
 
 import { TOfferPreview } from '../../types/offer-preview';
-import OfferList from '../offer-list/offer-list';
+import { CityMapData } from '../../const';
 
 const placesOptions: string[] = [
   'Popular',
@@ -14,12 +19,23 @@ type TCitiesProps = {
 }
 
 function Cities({ offers }: TCitiesProps) {
+  const activeCity = CityMapData.Amsterdam;
+
+  const [hoveredOfferId, setHoveredOfferId] = useState<TOfferPreview['id'] | null>(null);
+
+  function handleCardHover(offerId: TOfferPreview['id'] | null) {
+    setHoveredOfferId(offerId);
+  }
+
   return (
     <div className="cities">
       <div className="cities__places-container container">
         <section className="cities__places places">
           <h2 className="visually-hidden">Places</h2>
-          <b className="places__found">{offers.length} places to stay in Amsterdam</b>
+          <b className="places__found">
+            {offers.length} places to stay in {' '}
+            {activeCity.name}
+          </b>
           <form className="places__sorting" action="#" method="get">
             <span className="places__sorting-caption">Sort by</span>
             <span className="places__sorting-type" tabIndex={0}>
@@ -42,12 +58,28 @@ function Cities({ offers }: TCitiesProps) {
           </form>
           <div className="cities__places-list places__list tabs__content">
 
-            <OfferList offers={offers}/>
+            {offers.map((offer) => (
+              <PlaceCard
+                key={offer.id}
+                offers={offer}
+                block='cities'
+                onCardHover={handleCardHover}
+              />
+            ))}
+
+            {/* <OfferList
+              offers={offers}
+            /> */}
 
           </div>
         </section>
         <div className="cities__right-section">
-          <section className="cities__map map"></section>
+          <Map
+            block='cities'
+            offers={offers}
+            location={activeCity.location}
+            specialOfferId={hoveredOfferId}
+          />
         </div>
       </div>
     </div>

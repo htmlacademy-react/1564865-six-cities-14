@@ -7,10 +7,11 @@ type TOfferListProps = {
 }
 
 function OfferList({ offers }: TOfferListProps) {
+
   return (
     <>
       {offers.map((offer) => (
-        <PlaceCard key={offer.id} offer={offer} />
+        <PlaceCard key={offer.id} offers={offer} block='cities' />
       ))}
     </>
   );

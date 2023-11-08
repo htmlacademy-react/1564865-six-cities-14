@@ -1,18 +1,18 @@
-import { useState } from 'react';
-
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
-import { TOffer } from '../../types/offer';
+// import { TOffer } from '../../types/offer';
+import { TOfferPreview } from '../../types/offer-preview';
 
-type TCardOffer = Pick<
-  TOffer, 'id' | 'title' | 'isFavorite' | 'isPremium' | 'rating' | 'type' | 'price' | 'previewImage'>;
+// type TOfferPreview = Pick<
+//   TOffer, 'id' | 'title' | 'isFavorite' | 'isPremium' | 'rating' | 'type' | 'price' | 'previewImage'>;
 
 type TCardProps = {
-  offer: TCardOffer;
+  offers: TOfferPreview;
+  block: string;
+  onCardHover?: (offerId: TOfferPreview['id'] | null) => void;
 }
 
-function PlaceCard({offer}: TCardProps): JSX.Element {
-  const [isActive, setIsActive] = useState(false);
+function PlaceCard({offers, block, onCardHover}: TCardProps): JSX.Element {
 
   const {
     id,
@@ -23,21 +23,21 @@ function PlaceCard({offer}: TCardProps): JSX.Element {
     type,
     price,
     previewImage
-  } = offer;
+  } = offers;
 
   const offerLink = `${AppRoute.Offer}/${id}`;
 
   const handleMouseEnter = () => {
-    setIsActive(true);
+    onCardHover?.(id);
   };
 
   const handleMouseLeave = () => {
-    setIsActive(false);
+    onCardHover?.(null);
   };
 
   return (
     <article
-      className={`cities__card place-card ${isActive ? 'place-card--active' : ''}`}
+      className={`${block}__card place-card`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
