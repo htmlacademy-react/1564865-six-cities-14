@@ -1,6 +1,6 @@
 export type TMapPoint = {
   title: string;
-  lat: number;
-  lng: number;
+  latitude: number;
+  longitude: number;
   zoom: number;
 };
