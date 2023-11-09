@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
 import Map from '../map/map';
-import PlaceCard from '../place-card/place-card';
-// import OfferList from '../offer-list/offer-list';
+import OfferList from '../offer-list/offer-list';
 
 import { TOfferPreview } from '../../types/offer-preview';
 import { CityMapData } from '../../const';
@@ -33,8 +32,7 @@ function Cities({ offers }: TCitiesProps) {
         <section className="cities__places places">
           <h2 className="visually-hidden">Places</h2>
           <b className="places__found">
-            {offers.length} places to stay in {' '}
-            {activeCity.name}
+            {offers.length} places to stay in {activeCity.name}
           </b>
           <form className="places__sorting" action="#" method="get">
             <span className="places__sorting-caption">Sort by</span>
@@ -58,28 +56,22 @@ function Cities({ offers }: TCitiesProps) {
           </form>
           <div className="cities__places-list places__list tabs__content">
 
-            {offers.map((offer) => (
-              <PlaceCard
-                key={offer.id}
-                offers={offer}
-                block='cities'
-                onCardHover={handleCardHover}
-              />
-            ))}
-
-            {/* <OfferList
+            <OfferList
               offers={offers}
-            /> */}
+              onCardHover={handleCardHover}
+            />
 
           </div>
         </section>
         <div className="cities__right-section">
+
           <Map
             block='cities'
             offers={offers}
             location={activeCity.location}
             specialOfferId={hoveredOfferId}
           />
+
         </div>
       </div>
     </div>
