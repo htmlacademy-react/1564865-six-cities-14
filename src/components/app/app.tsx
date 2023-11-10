@@ -13,6 +13,8 @@ import { AppRoute, AuthorizationStatus } from '../../const';
 import { TOfferPreview } from '../../types/offer-preview';
 import { ReviewType } from '../../types/review';
 
+import ScrollToTop from '../../utils/scroll-to-top/scroll-to-top';
+
 type AppPageProps = {
   offers: TOfferPreview[];
   reviews: ReviewType[];
@@ -22,6 +24,7 @@ function App({ offers, reviews }: AppPageProps): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route
             path={AppRoute.Root}
