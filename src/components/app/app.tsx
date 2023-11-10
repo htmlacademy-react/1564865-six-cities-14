@@ -1,6 +1,8 @@
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import ProtectedRoute from '../protected-route/protected-route';
+
+import ProtectedRoute from '../../utils/protected-route/protected-route';
+import ScrollToTop from '../../utils/scroll-to-top/scroll-to-top';
 
 import MainPage from '../../pages/main-page/main-page';
 import FavoritesPage from '../../pages/favorites-page/favorites-page';
@@ -13,7 +15,6 @@ import { AppRoute, AuthorizationStatus } from '../../const';
 import { TOfferPreview } from '../../types/offer-preview';
 import { ReviewType } from '../../types/review';
 
-import ScrollToTop from '../../utils/scroll-to-top/scroll-to-top';
 
 type AppPageProps = {
   offers: TOfferPreview[];
