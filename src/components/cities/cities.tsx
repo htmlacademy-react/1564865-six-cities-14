@@ -1,10 +1,10 @@
-import { useState } from 'react';
-
 import Map from '../map/map';
 import OfferList from '../offer-list/offer-list';
 
 import { TOfferPreview } from '../../types/offer-preview';
 import { CityMapData } from '../../const';
+
+import useHover from '../../hooks/useHover';
 
 const placesOptions: string[] = [
   'Popular',
@@ -20,11 +20,7 @@ type TCitiesProps = {
 function Cities({ offers }: TCitiesProps) {
   const activeCity = CityMapData.Amsterdam;
 
-  const [hoveredOfferId, setHoveredOfferId] = useState<TOfferPreview['id'] | null>(null);
-
-  function handleCardHover(offerId: TOfferPreview['id'] | null) {
-    setHoveredOfferId(offerId);
-  }
+  const { hoveredOfferId, handleCardHover } = useHover({ initialOfferId: null });
 
   return (
     <div className="cities">
