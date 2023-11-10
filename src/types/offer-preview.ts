@@ -6,11 +6,12 @@ export type TOfferPreview = {
   goods: string[];
   isFavorite?: boolean;
   isPremium: boolean;
-  location?: TLocation;
+  location: TLocation;
   previewImage: string;
   price: number;
   rating: number;
   title: string;
   type: string;
   id: string;
+  onCardHover?: void;
  }
