@@ -2,16 +2,12 @@ import { Helmet } from 'react-helmet-async';
 
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
-// import PlaceCard from '../../components/place-card/place-card';
 import OfferList from '../../components/offer-list/offer-list';
+import { useAppSelector } from '../../hooks';
 
-import { TOfferPreview } from '../../types/offer-preview';
+function FavoritesPage(): JSX.Element {
+  const offers = useAppSelector((state) => state.offers);
 
-type TFavoritesPageProps = {
-  offers: TOfferPreview[];
-}
-
-function FavoritesPage({ offers }: TFavoritesPageProps): JSX.Element {
   return (
     <div className="page">
       <Header />

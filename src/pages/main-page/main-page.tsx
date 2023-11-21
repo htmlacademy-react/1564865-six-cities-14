@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 
 import Header from '../../components/header/header';
 import Cities from '../../components/cities/cities';
+import { AppRoute } from '../../const';
 
-import { TOfferPreview } from '../../types/offer-preview';
+// import { TOfferPreview } from '../../types/offer-preview';
 
 const cities: string[] = [
   'Paris',
@@ -16,11 +17,11 @@ const cities: string[] = [
   'Dusseldorf',
 ];
 
-type MainPageProps = {
-  offers: TOfferPreview[];
-}
+// type MainPageProps = {
+//   offers: TOfferPreview[];
+// }
 
-function MainPage({ offers }: MainPageProps): JSX.Element {
+function MainPage(): JSX.Element {
 
   const [activeCity, setActiveCity] = useState<string | null>(null);
 
@@ -46,7 +47,7 @@ function MainPage({ offers }: MainPageProps): JSX.Element {
               {cities.map((city) => (
                 <li className="locations__item" key={city}>
                   <Link
-                    to={`/${city}`}
+                    to={AppRoute.Root}
                     className={`locations__item-link tabs__item ${activeCity === city ? 'tabs__item--active' : ''}`}
                     onMouseEnter={() => handleMouseEnter(city)}
                     onMouseLeave={handleMouseLeave}
@@ -58,7 +59,7 @@ function MainPage({ offers }: MainPageProps): JSX.Element {
             </ul>
           </section>
         </div>
-        <Cities offers={offers} />
+        <Cities />
       </main>
     </div>
   );
