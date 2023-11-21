@@ -1,10 +1,10 @@
 import Map from '../map/map';
 import OfferList from '../offer-list/offer-list';
 
-import { TOfferPreview } from '../../types/offer-preview';
 import { CityMapData } from '../../const';
 
 import useHover from '../../hooks/useHover';
+import { useAppSelector } from '../../hooks';
 
 const placesOptions: string[] = [
   'Popular',
@@ -13,12 +13,9 @@ const placesOptions: string[] = [
   'Top rated first',
 ];
 
-type TCitiesProps = {
-  offers: TOfferPreview[];
-}
-
-function Cities({ offers }: TCitiesProps) {
+function Cities() {
   const activeCity = CityMapData.Amsterdam;
+  const offers = useAppSelector((state) => state.offers);
 
   const { hoveredOfferId, handleCardHover } = useHover({ initialOfferId: null });
 

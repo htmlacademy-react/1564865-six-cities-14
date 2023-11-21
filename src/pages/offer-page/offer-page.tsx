@@ -7,19 +7,17 @@ import Map from '../../components/map/map';
 
 import { offerGallery, offerInsideItems } from './offer-data';
 
-import { TOfferPreview } from '../../types/offer-preview';
-import { ReviewType } from '../../types/review';
+// import { TOfferPreview } from '../../types/offer-preview';
+// import { ReviewType } from '../../types/review';
 import { CityMapData } from '../../const';
 
 import useHover from '../../hooks/useHover';
+import { useAppSelector } from '../../hooks';
+import { reviews } from '../../mocks/reviews';
 
-type TOfferPageProps = {
-  offers: TOfferPreview[];
-  reviews: ReviewType[];
-}
-
-function OfferPage({ offers, reviews }: TOfferPageProps): JSX.Element {
+function OfferPage() {
   const activeCity = CityMapData.Amsterdam;
+  const offers = useAppSelector((state) => state.offers);
 
   const { hoveredOfferId, handleCardHover } = useHover({ initialOfferId: null });
 
