@@ -15,11 +15,6 @@ import useHover from '../../hooks/useHover';
 import { useAppSelector } from '../../hooks';
 import { reviews } from '../../mocks/reviews';
 
-// type TOfferPageProps = {
-//   offers: TOfferPreview[];
-//   reviews: ReviewType[];
-// }
-
 function OfferPage() {
   const activeCity = CityMapData.Amsterdam;
   const offers = useAppSelector((state) => state.offers);

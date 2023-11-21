@@ -12,15 +12,6 @@ import NotFoundPage from '../../pages/not-found-page/not-found-page';
 
 import { AppRoute, AuthorizationStatus } from '../../const';
 
-// import { TOfferPreview } from '../../types/offer-preview';
-// import { ReviewType } from '../../types/review';
-
-
-// type AppPageProps = {
-//   offers: TOfferPreview[];
-//   reviews: ReviewType[];
-// }
-
 function App(): JSX.Element {
   return (
     <HelmetProvider>

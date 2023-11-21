@@ -1,7 +1,6 @@
 import Map from '../map/map';
 import OfferList from '../offer-list/offer-list';
 
-// import { TOfferPreview } from '../../types/offer-preview';
 import { CityMapData } from '../../const';
 
 import useHover from '../../hooks/useHover';
@@ -13,10 +12,6 @@ const placesOptions: string[] = [
   'Price: high to low',
   'Top rated first',
 ];
-
-// type TCitiesProps = {
-//   offers: TOfferPreview[];
-// }
 
 function Cities() {
   const activeCity = CityMapData.Amsterdam;
